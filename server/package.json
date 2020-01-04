@@ -1,13 +1,14 @@
 {
   "dependencies": {
+    "node": "~13.5.0",
     "express": "~4.17",
     "cors": "*"
   },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
   "devDependencies": {
     "nodemon": "1.18.3"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon"
   }
 }
