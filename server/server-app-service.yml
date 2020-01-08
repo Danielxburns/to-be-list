@@ -1,0 +1,11 @@
+apiVersion: '1' #this might need a v, it also might not need to be a string NOTE 
+kind: Service
+metadata:
+  name: tobe-backend-service
+spec: 
+  ports:
+    - port: 5000 #check the indent here NOTE 
+      targetPort: 5000
+  selector:
+    app: tobe-server-app
+type: LoadBalancer
