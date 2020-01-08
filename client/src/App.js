@@ -50,7 +50,6 @@ class App extends React.Component {
     e.preventDefault();
     console.log('submit clicked! this.state :', this.state);
     this.postNewUser()
-
   }
 
   render() {
