@@ -58,7 +58,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>Welcome to your ToBe List</p>
+          <p>Welcome to your ToBe List, fella</p>
           <form>
             <label>What is your name?</label>
             <br></br>
