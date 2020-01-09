@@ -18,11 +18,11 @@ db.on('error', (err) => {
 db.once('open', () => {
   console.log(`
     You are experiencing...
-            _=_
-          q(-_-)p
-          '_) (_'
-          /__/  \\
-        _(<_   / )_
+             _=_
+           q(-_-)p
+           '_) (_'
+           /__/  \\
+         _(<_   / )_
         (__\\_\\_|_/__)
       a deep connection
     with the ToBe database.
@@ -47,7 +47,7 @@ const getUsers = (cb) => {
   User.find({}, (err, users) => {
     if (err) {
       // NOTE it would be nice to send a message to the user here
-      console.log('error getting all users from database:', err);
+      console.log('error while getting all users from database:', err);
     } else {
       const userMap = {};
       users.forEach((user) => {
@@ -57,21 +57,28 @@ const getUsers = (cb) => {
     }
   });
 };
-
-const postUser = (name, cb) => {
-  const newUser = new User(name);
-  console.log('inside postUser - newUser :', newUser);
-  newUser.save((err, res) => {
+const getUser = (query, cb) => {
+  User.findOne(query, (err, data) => {
     if (err) {
       return console.error(err);
-    } else {
-      console.log('inside save res :', res);
-      return cb(null, res);
     }
+    return cb(null, query);
+  });
+};
+const postUser = (name, cb) => {
+  const newUser = new User(name);
+  /*   console.log('inside postUser - newUser :', newUser); */
+  newUser.save((err, user) => {
+    if (err) {
+      return console.error(err);
+    }
+    /*       console.log('inside save user :', user); */
+    return cb(null, user);
   });
 };
 
 module.exports = {
   getUsers,
+  getUser,
   postUser
 };
