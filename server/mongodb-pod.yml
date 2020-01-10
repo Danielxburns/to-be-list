@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mongodb
+  labels:
+    app: tobe-mongodb
+spec:
+  volumes:
+    - name: tobe-mongo-vol
+      persistentVolumeClaim:
+        claimName: tobe-pvc 
+  containers:
+    - image: mongo
+      name: container1
+      command:
+        - mongod 
+        - " -- bind_ip"
+        - "0.0.0.0"
+      ports:
+        - containerPort: 27017
+      volumeMounts:
+        - name: tobe-mongo-vol 
+          mountPath: /data/db
