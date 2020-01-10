@@ -16,6 +16,6 @@ spec:
         - name: container1
           image: danielxburns/tobe-client-k8s-app
           ports:
-          - containerPort: 80
+            - containerPort: 3000
           #imagePullPolicy: IfNotPresent #not sure this is necessary. Look it up NOTE 
     
